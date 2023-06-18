@@ -1,0 +1,46 @@
+{
+  "posts": [
+    {
+      "id": 1,
+      "title": "my first post",
+      "datetime": "aug 27,2002 11:12:00",
+      "body": "when i was born"
+    },
+    {
+      "id": 2,
+      "title": "my second post",
+      "datetime": "aug 27,2019 11:12:00",
+      "body": "Entering the college life"
+    },
+    {
+      "id": 3,
+      "title": "my third post",
+      "datetime": "June 17, 2023 10:03:52 PM",
+      "body": "Come over my childhood"
+    },
+    {
+      "id": 4,
+      "title": "my fourth post",
+      "datetime": "June 17, 2023 10:31:38 PM",
+      "body": "Expected to marriage"
+    },
+    {
+      "id": 5,
+      "title": "post 5",
+      "datetime": "June 18, 2023 10:01:15 AM",
+      "body": "whats next"
+    },
+    {
+      "id": 6,
+      "title": "post 6",
+      "datetime": "June 18, 2023 10:10:06 AM",
+      "body": "get a job first..then enjoy"
+    },
+    {
+      "id": 8,
+      "title": "success",
+      "datetime": "June 18, 2023 10:17:49 AM",
+      "body": "build the  strong base for react js"
+    }
+  ]
+}
