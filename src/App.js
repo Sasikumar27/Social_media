@@ -23,10 +23,8 @@ function App() {
   const navigate = useNavigate()
   const [posts, setPosts] = useState([])
   const { data, fetchError, isLoading} = useAxiosFetch('http://localhost:3500/posts')
-  console.log(data)
   useEffect( () => {
     setPosts(data)
-    console.log(posts)
   },[data])
 
   useEffect( ()=> {
