@@ -1,14 +1,19 @@
-import React from 'react'
 import Feed from './Feed'
 
-const Home = ({posts}) => {
+const Home = ({posts, fetchError, isLoading}) => {
   return (
     <main className='home'>
-        { posts.length ? (
+        {isLoading &&
+            <p>Loading Posts.....</p>}
+        {!isLoading && fetchError &&
+            <p>{fetchError}</p>
+        }
+        {!isLoading && !fetchError &&
+        (posts.length ? (
             <Feed posts={posts} />
         ):<p>
             There is no posts available
-        </p>}
+        </p>)}
     </main>
   )
 }

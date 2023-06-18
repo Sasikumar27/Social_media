@@ -11,6 +11,7 @@ import { useEffect, useState } from "react";
 import { Route, Routes, useNavigate } from "react-router-dom";
 import api from "./api/posts"
 import Editpost from "./Editpost";
+import useAxiosFetch from "./hooks/useAxiosFetch";
 
 function App() {
   const [search, setSearch] = useState('')
@@ -21,32 +22,19 @@ function App() {
   const [editbody, setEditbody] = useState('')
   const navigate = useNavigate()
   const [posts, setPosts] = useState([])
-  
-  useEffect( ()=> {
-    const fetchposts = async() => {
-      try{
-        const response = await api.get('/posts')
-        setPosts(response.data)
-      }catch(err){
-        if(err.response){
-          console.log(err.response.data)
-          console.log(err.response.status)
-          console.log(err.response.headers)
-        }
-        else{
-          console.log(`Error: ${err.message}`)
-        }
-      }
-    }
-    fetchposts()
-  }, [])
+  const { data, fetchError, isLoading} = useAxiosFetch('http://localhost:3500/posts')
+  console.log(data)
+  useEffect( () => {
+    setPosts(data)
+    console.log(posts)
+  },[data])
 
   useEffect( ()=> {
     const filterdResults = posts.filter( (post) =>
     ( (post.body).toLowerCase()).includes(search.toLowerCase()) || ((post.title).toLowerCase()).includes(search.toLowerCase()))
 
     setSearchresult(filterdResults.reverse())
-  }, [posts,search])
+  }, [posts,search]) 
 
   const handleSubmit = async(e) => {
     e.preventDefault()
@@ -103,6 +91,8 @@ function App() {
       <Routes>
         <Route path="/" element = {<Home 
           posts={searchresult}
+          fetchError={fetchError}
+          isLoading={isLoading}
         />} />
         <Route path="/post" element = {<NewPost 
           handleSubmit={handleSubmit}
