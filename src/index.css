@@ -33,6 +33,11 @@ header{
     margin-left: 25%;
   }
 }
+@media screen and (max-width: 480px){
+  header{
+    display: none;
+  }
+}
 .post{
   display: grid;
   justify-content: center;
