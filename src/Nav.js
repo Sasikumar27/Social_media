@@ -7,7 +7,7 @@ import Navbar from 'react-bootstrap/Navbar';
 const nav = ({search,setSearch}) => {
   return (
     <>
-    <Navbar className='fullnav' expand="sm" >
+    <Navbar className='fullnav' >
       <Container>
         <Navbar.Brand href="/">HOME</Navbar.Brand>
         <form className='text-center' onSubmit={(e)=> e.preventDefault()}>

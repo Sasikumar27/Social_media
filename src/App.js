@@ -81,7 +81,7 @@ function App() {
   }
   return ( 
     <div className="App">   
-      <Header title="Nazi"/>
+      <Header title="Your Thoughts"/>
       <Nav 
         search={search}
         setSearch={setSearch}

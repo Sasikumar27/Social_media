@@ -3,7 +3,7 @@ import React from 'react'
 const Header = ({title}) => {
   return (
     <header >
-        <h1 className='fw-bold text-center'>{title}</h1>
+        <h1 className=' text-center fw-bold '>{title}</h1>
         <hr></hr>
     </header>
   )

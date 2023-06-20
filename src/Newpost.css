@@ -1,16 +1,28 @@
 .login-box {
     position: absolute;
-    top: 70%;
+    margin-top: 40vh;
     left: 50%;
     width: 400px;
     padding: 40px;
     transform: translate(-50%, -50%);
     background: rgb(245, 242, 242);
-    box-sizing: border-box;
     box-shadow: 0 15px 25px rgba(0,0,0,.6);
     border-radius: 10px;
   }
+  @media (max-width: 450px){
+    .login-box {
+      display: none;
+      position: absolute;
+      margin-top: 15vh;
+      left: 50%;
+    }
+  }@media only screen and (max-width: 480px) {
+    .login-box {
+      display: none;
+    }
+  }
   
+
   .login-box h2 {
     margin: 0 0 30px;
     padding: 0;
@@ -50,20 +62,6 @@
     left: 0;
     color: #0f87ff;
     font-size: 12px;
-  }
-  
-  .login-box form a {
-    position: relative;
-    display: inline-block;
-    padding: 10px 20px;
-    color: #8dc2c5;
-    font-size: 16px;
-    text-decoration: none;
-    text-transform: uppercase;
-    overflow: hidden;
-    transition: .5s;
-    margin-top: 40px;
-    letter-spacing: 4px
   }
   
   .login-box a span {
