@@ -1,33 +1,42 @@
 import React from 'react'
-import { Link, useParams } from 'react-router-dom'
+import { useParams } from 'react-router-dom'
+import { Card } from 'react-bootstrap'
+import {Button} from 'react-bootstrap'
 
 const PostPage = ({posts, handleDelete}) => {
   const {id} = useParams()
   const post = posts.find(post => (post.id).toString()===id)
   return (
     <main className='postpage'>
-        <article className='post'>
           {post && 
             <>
-              <h2>{post.title}</h2>
-              <p className='postdate'>{post.datetime}</p>
-              <p className='postbody'>{post.body}</p>
-              <Link to={`/edit/${id}`}>
-                <button>Edit</button>
-              </Link>
-              <button onClick={()=>
-              handleDelete(post.id)}>
-                Delete
-              </button>
+              <div className='posts'>
+                <Card style={{width: '30rem'}}           
+                  className='mx-5 my-2'>
+                  <Card.Body className='p-3 '>
+                    <Card.Title>{post.title}</Card.Title>
+                    <Card.Subtitle className="mb-2 text-muted">{post.datetime}</Card.Subtitle>
+                    <Card.Text >
+                      {post.body}
+                    </Card.Text>
+                  </Card.Body>
+                </Card>
+              </div>
+              <div className="buttons">
+                <Button href={`edit/${post.id}`}variant='outline-success'
+                >Edit</  Button>
+                <Button variant='outline-danger' onClick={()=>
+                handleDelete(post.id)}>
+                  Delete
+                </Button>
+              </div>
             </>
           }
           {!post &&
             <>
-              <h2>post not found </h2>
+              <h2 className='Nopost'>Post Not Found </h2>
             </>
           }
-
-        </article>
     </main>
   )
 }

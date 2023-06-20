@@ -1,30 +1,31 @@
 import React from 'react'
+import { Button } from 'react-bootstrap'
 
 const NewPost = ({handleSubmit, posttitle, setPosttitle, postbody, setPostbody}) => {
   return (
-    <main className='newpost'>
-        <h5>New post</h5>
-        <form className='newpostform' onSubmit={handleSubmit}>
-            <label htmlFor='posttitle'>Title</label>
+    <main className='login-box'>
+        <h2>Share your Thought</h2>
+        <form className='user-box' onSubmit={handleSubmit}>
+            <label htmlFor='posttitle'></label>
             <input
                 id='posttitle'
                 type='text'
                 required
-                placeholder='type title'
+                //placeholder='type title'
                 value={posttitle}
                 onChange={ e => setPosttitle(e.target.value)}
             ></input>
 
-            <label htmlFor='postbody'>Body</label>
+            <label htmlFor='postbody'>Name</label>
             <input
                 id='postbody'
                 type='text'
                 required
-                placeholder='type content'
+                placeholder="What's on your Mind?"
                 value={postbody}
                 onChange={ e => setPostbody(e.target.value)}
             ></input>
-            <button type='submit' onClick={handleSubmit}> Submit</button>
+            <Button variant='outline-primary' type='submit' onClick={handleSubmit}> Submit</Button>
         </form>
     </main>
   )

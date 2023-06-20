@@ -101,7 +101,7 @@ function App() {
         />} />
         <Route path="/post/:id" element={<PostPage posts={posts}
         handleDelete={handleDelete}/>}/>
-        <Route path="/edit/:id" element ={<Editpost 
+        <Route path="post/edit/:id" element ={<Editpost 
           posts={posts} 
           handleEdit={handleEdit}
           editbody={editbody}

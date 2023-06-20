@@ -1,6 +1,7 @@
 import React from 'react'
 import { useParams } from 'react-router-dom'
 import { useEffect } from 'react'
+import { Button } from 'react-bootstrap'
 
 const Editpost = ({posts, handleEdit, edittitle, editbody, setEdittitle, setEditbody}) => {
   const {id} = useParams()
@@ -14,13 +15,13 @@ const Editpost = ({posts, handleEdit, edittitle, editbody, setEdittitle, setEdit
   }, [post,setEditbody, setEdittitle])
   
   return (
-    <main className='newpost'>
+    <main >
       {edittitle &&
-      <>
-        <h2>Edit post</h2>
-        <form className='newpostform' onSubmit={(e) =>
+      <div className='login-box'>
+        <h2>Change your Thought</h2>
+        <form className='user-box' onSubmit={(e) =>
          e.preventDefault()}>
-        <label htmlFor='posttitle'>Title</label>
+          <label htmlFor='posttitle'></label>
             <input
                 id='posttitle'
                 type='text'
@@ -30,7 +31,7 @@ const Editpost = ({posts, handleEdit, edittitle, editbody, setEdittitle, setEdit
                 onChange={ e => setEdittitle(e.target.value)}
             ></input>
 
-            <label htmlFor='postbody'>Body</label>
+            <label htmlFor='postbody'>Name</label>
             <input
                 id='postbody'
                 type='text'
@@ -39,15 +40,15 @@ const Editpost = ({posts, handleEdit, edittitle, editbody, setEdittitle, setEdit
                 value={editbody}
                 onChange={ e => setEditbody(e.target.value)}
             ></input>
-            <button type='submit'
+            <Button className='mx-3' variant="outline-primary" type='submit'
               onClick={ () => handleEdit(post.id)}
-            > Submit</button>
+            > Submit</Button>
         </form>
-      </>
+      </div>
       }
       {!edittitle &&
         <>
-          <h2>Post not Found</h2>
+          <h3 className='Nopost'>Post not Found</h3>
         </>
       }
     </main>

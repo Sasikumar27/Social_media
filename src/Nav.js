@@ -1,26 +1,37 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
+import Container from 'react-bootstrap/Container';
+import Nav from 'react-bootstrap/Nav';
+import Navbar from 'react-bootstrap/Navbar';
 
-const Nav = ({search,setSearch}) => {
+
+const nav = ({search,setSearch}) => {
   return (
-    <nav className='nav'>
-        <form className='searchform' onSubmit={(e)=> e.preventDefault()}>
-            <label htmlFor='search'>Search posts</label>
-            <input
-                id='search'
+    <>
+    <Navbar className='fullnav' expand="sm" >
+      <Container>
+        <Navbar.Brand href="/">HOME</Navbar.Brand>
+        <form className='text-center' onSubmit={(e)=> e.preventDefault()}>
+            <label className='search' htmlFor='search'>Search posts</label>
+            <div className='sea'>
+              <input 
+                className='searchbox'
                 type='text'
                 placeholder="search"
                 value={search}
                 onChange={(e)=> setSearch(e.target.value)}
-            />
+            /></div>
         </form>
-        <ul>
-            <li><Link to="/">Home</Link></li>
-            <li><Link to="/about">About</Link></li>
-            <li><Link to="/post">Posts</Link></li>
-        </ul>
-    </nav>
+        <Navbar.Toggle aria-controls="basic-navbar-nav" />
+        <Navbar.Collapse >
+          <Nav className="navbr">
+            <Nav.Link href="/about">About</Nav.Link>
+            <Nav.Link href="/post">New Posts</Nav.Link>
+          </Nav>
+        </Navbar.Collapse>
+      </Container>
+    </Navbar>
+   </>
   )
 }
 
-export default Nav
+export default nav

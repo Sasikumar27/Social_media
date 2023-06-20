@@ -1,17 +1,20 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
+import Card from 'react-bootstrap/Card';
 
 const Post = ({posts}) => {
   return (
-    <main className='post'>
-        <Link to={`post/${posts.id}`}>
-          <h2>{posts.title}</h2>
-          <p className='datetime'>{posts.datetime}</p>
-        </Link>
-        <p className='postbody'>{
-            (posts.body).length <=10 ? posts.body : `${(posts.body).slice(0,20)}...`
-        }</p>
-    </main>
+          <div className='posts'>
+              <Card style={{width: '30rem' }} className='mx-5 my-2'>
+                <Card.Body className='p-3 '>
+                  <Card.Title>{posts.title}</Card.Title>
+                  <Card.Subtitle className="mb-2 text-muted">{posts.datetime}</Card.Subtitle>
+                  <Card.Text >
+                    {(posts.body).length <=10 ? posts.body : `${(posts.body).slice(0,20)}...`}
+                  </Card.Text>
+                  <Card.Link href={`post/${posts.id}`} >View Post</Card.Link>
+                </Card.Body>
+              </Card>
+          </div>
   )
 }
 

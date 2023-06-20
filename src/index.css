@@ -1,13 +1,103 @@
-body {
+@import url('https://fonts.googleapis.com/css2?family=Playfair,wght@1,400;1,500&display=swap');
+
+*{
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+  padding: 0;
+  box-sizing: border-box;
+}
+.App {
+  background-image: linear-gradient(to right bottom, #b9f8f4, #c7f9fd, #d7f9ff, #e7faff, #f5fbff, #f5f8ff, #f9f4ff, #fff0f9, #ffe4e8, #ffdacd, #f7d6b1, #d8d69e);
+  font-family: 'Playfair', serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
-
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+header{
+  border: 0px solid black;
+  padding: 1px 0px 0px 0px;
+  /*background-image: linear-gradient(180deg, rgba(32, 236, 255, 0.968),white); */
 }
+.search{
+  display: none;
+}
+.navbr{
+  margin-left: 3vw;
+}
+.sea{
+  margin-left: 10vw; 
+}
+.fullnav{
+  margin-left: 10%;
+}
+@media screen and (min-width: 991px){
+  .fullnav{
+    margin-left: 25%;
+  }
+}
+.post{
+  display: grid;
+  justify-content: center;
+  align-items: center;
+}
+.Footer{
+  padding-bottom: 5px;
+  font-weight: none;
+}
+#loadingpage{
+    width: 100vw;
+    height: 100vh;
+    position: relative;
+}
+#circle{
+  position: absolute;
+  width: 20px;
+  top:42%;
+  height: 20px;
+  border-top: 1px solid  rgb(255, 0, 0);
+  border-radius: 100px;
+  left: 50%;
+  margin-right: -50%;
+  transform: translate(-50%, -50%);
+  animation: rotate 1s ease-in-out infinite;
+}
+#loading{
+  font-style: italic;
+  position: absolute;
+  top:50%;
+  height: 25px;
+  left: 50%;
+  margin-right: -50%;
+  transform: translate(-50%, -50%);
+}
+@keyframes rotate {
+  0%{
+    transform: rotate(0deg);
+  }
+  100%{
+    transform: rotate(360deg);
+  }
+}
+.Nopost{
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.posts{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.postpage{
+  height: 100vh;
+  margin-top: 10%;
+}
+.buttons{
+  display: flex;
+  justify-content: space-evenly;
+  
+  margin: 10px;
+}
+.newpost{
+  height: 100vh;
+}
+
