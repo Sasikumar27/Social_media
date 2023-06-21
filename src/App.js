@@ -9,9 +9,7 @@ import NewPost from "./NewPost";
 import PostPage from "./PostPage";
 import { useEffect, useState } from "react";
 import { Route, Routes, useNavigate } from "react-router-dom";
-import api from "./api/posts"
 import Editpost from "./Editpost";
-import useAxiosFetch from "./hooks/useAxiosFetch";
 
 function App() {
   const [search, setSearch] = useState('')
@@ -22,19 +20,23 @@ function App() {
   const [editbody, setEditbody] = useState('')
   const navigate = useNavigate()
   const [posts, setPosts] = useState([])
-  const { data, fetchError, isLoading} = useAxiosFetch('http://localhost:3500/posts')
-  useEffect( () => {
-    setPosts(data)
-  },[data])
+  //localStorage.setItem('thoughts', JSON.stringify(posts))
+  
+  useEffect( ()=> { 
+    setPosts(JSON.parse(localStorage.getItem('thoughts')))
+  },[]) 
 
   useEffect( ()=> {
-    const filterdResults = posts.filter( (post) =>
-    ( (post.body).toLowerCase()).includes(search.toLowerCase()) || ((post.title).toLowerCase()).includes(search.toLowerCase()))
+    if(posts.length){
+      const filterdResults = posts.filter( (post) =>
+      ( (post.body).toLowerCase()).includes(search.toLowerCase()) || ((post.title).toLowerCase()).includes(search.toLowerCase()))
+      setSearchresult(filterdResults.reverse()) 
+    }else{
+      <Missing />
+    }
+    }, [posts,search])  
 
-    setSearchresult(filterdResults.reverse())
-  }, [posts,search]) 
-
-  const handleSubmit = async(e) => {
+  const handleSubmit = (e) => {
     e.preventDefault()
     const id = posts.length ? posts[posts.length-1].id +1 : 1
     const datetime = format(new Date(), 'MMMM dd, yyyy pp')
@@ -42,9 +44,9 @@ function App() {
       id, title: posttitle, datetime, body: postbody
     }
     try{
-    const response = await api.post('/posts', newpost)
-    const allposts = [...posts, response.data]
+    const allposts = [...posts,newpost]
     setPosts(allposts)
+    localStorage.setItem('thoughts', JSON.stringify(allposts))
     setPosttitle('')
     setPostbody('')
     navigate('/')
@@ -53,27 +55,27 @@ function App() {
     }
   }
 
-  const handleEdit = async (id) =>{
-    try{
-      const datetime = format(new Date(), 'MMMM dd, yyyy pp')
-      const updatepost = {
-      id, title: edittitle, datetime, body: editbody
-      }
-      const response = await api.put(`/posts/${id}`, updatepost)
-      setPosts(posts.map(post => (post.id) === id ? {...response.data} : post))
+  const handleEdit =(id) =>{
+    const datetime = format(new Date(), 'MMMM dd, yyyy pp')
+    const updatepost = {
+    id, title: edittitle, datetime, body: editbody}
+    try{ 
+      setPosts(posts.map(post => (post.id) === id ? updatepost : post))
       setEdittitle('')
       setEditbody('')
-      navigate('/')
+      navigate('/') 
     }catch(err){
       console.log(`Error: ${err.message}`)
+    }finally{
+      localStorage.setItem('thoughts', JSON.stringify(posts))
     }
   } 
-
-  const handleDelete = async(id) =>{
+    
+  const handleDelete = (id) =>{
     try{
-    await api.delete(`/posts/${id}`)
     const postlist = posts.filter(post => post.id !== id)
     setPosts(postlist)
+    localStorage.setItem('thoughts', JSON.stringify(postlist))
     navigate('/')
     }catch(err){
       console.log(err.message)
@@ -89,8 +91,6 @@ function App() {
       <Routes>
         <Route path="/" element = {<Home 
           posts={searchresult}
-          fetchError={fetchError}
-          isLoading={isLoading}
         />} />
         <Route path="/post" element = {<NewPost 
           handleSubmit={handleSubmit}
@@ -99,7 +99,8 @@ function App() {
           setPosttitle={setPosttitle}
           setPostbody={setPostbody}
         />} />
-        <Route path="/post/:id" element={<PostPage posts={posts}
+        <Route path="/post/:id" element={<PostPage
+        posts={posts}
         handleDelete={handleDelete}/>}/>
         <Route path="post/edit/:id" element ={<Editpost 
           posts={posts} 

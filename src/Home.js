@@ -1,6 +1,8 @@
 import Feed from './Feed'
 
 const Home = ({posts, fetchError, isLoading}) => {
+    fetchError=false
+    isLoading=false
   return (
     <main className='home'>
         {isLoading &&
@@ -15,7 +17,7 @@ const Home = ({posts, fetchError, isLoading}) => {
             <p>{fetchError}</p>
         }
         {!isLoading && !fetchError &&
-        (posts.length ? (
+        ((posts.length) ? (
             <Feed posts={posts} />
         ):<p className='Nopost'>
             There is no posts available

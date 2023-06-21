@@ -34,7 +34,11 @@ const PostPage = ({posts, handleDelete}) => {
           }
           {!post &&
             <>
-              <h2 className='Nopost'>Post Not Found </h2>
+              <h2>{posts.title}</h2>
+              <h2 className='Nopost'>There is a No Post..</h2>
+              <h5 className='text-center'> 
+                Create your First post by clicking New post on your Top-Right..!
+              </h5>
             </>
           }
     </main>

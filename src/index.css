@@ -29,11 +29,6 @@ header{
 .fullnav{
   margin-left: 5%;
 }
-@media screen and (max-width: 480px){
-  header{
-    display: none;
-  }
-}
 .post{
   display: grid;
   justify-content: center;
@@ -78,7 +73,7 @@ header{
   }
 }
 .Nopost{
-  height: 100vh;
+  height: 10vh;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -104,18 +99,37 @@ header{
 
 @media screen and (min-width: 991px){
   .navbr{
-    margin-left: 20vw;
+    margin-left: 25vw;
   }
   .sea{
     margin-left: 20vw; 
   }
   .fullnav{
-    margin-left: 15%;
-  }
-}
-@media only screen and (max-width: 480px) {
-  header{
-    display: none;
+    margin-left: 23%;
   }
 }
 
+@media screen and (min-width: 480px) {
+  .navbr{
+    margin-left: 13vw;
+  }
+  .sea{
+    box-shadow: #0b0b00;
+    margin-left: 15vw;
+  }
+  .fullnav{
+    margin-bottom: 5vh;
+  }
+  .App{
+    height: 100vh;
+  }
+  .Footer{
+    position: fixed;
+    margin-left: 43vw;
+    bottom: 0;
+  }
+}
+a{
+  padding: 5px;
+  margin-bottom: 5px;
+}

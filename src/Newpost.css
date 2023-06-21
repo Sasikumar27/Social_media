@@ -1,7 +1,7 @@
 .login-box {
     position: absolute;
-    margin-top: 40vh;
-    left: 50%;
+    margin-top: 35vh;
+    left: 48%;
     width: 400px;
     padding: 40px;
     transform: translate(-50%, -50%);
@@ -145,5 +145,6 @@
   }
 
 Footer{
-    margin-top: 500px;
+  display: none;
+    bottom: 0;
 }
