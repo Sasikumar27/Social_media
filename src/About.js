@@ -11,7 +11,7 @@ const About = () => {
             <br /><br /><br /><br /><br />
             <p className='text-center'>Follow me on <br />
             <a  href='https://www.linkedin.com/in/sasikumar-c-225874212'><AiOutlineLinkedin/>  </a>
-            <a  href="www.instagram.com/sasi_200ns" > <AiOutlineInstagram /> </a> </p>
+            <a  href="https://www.instagram.com/sasi_200ns" > <AiOutlineInstagram /> </a> </p>
             <p className='text-center'>For more Projects Visit..<a href="https://github.com/Sasikumar27">< BsGithub /></a></p>
 
 

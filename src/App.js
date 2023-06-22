@@ -97,14 +97,14 @@ function App() {
         <Route path="/" element = {<Home 
           posts={searchresult}
         />} />
-        <Route path="/post" element = {<NewPost 
+        <Route path="post" element = {<NewPost 
           handleSubmit={handleSubmit}
           posttitle={posttitle}
           postbody={postbody}
           setPosttitle={setPosttitle}
           setPostbody={setPostbody}
         />} />
-        <Route path="/post/:id" element={<PostPage
+        <Route path="post/:id" element={<PostPage
         posts={posts}
         handleDelete={handleDelete}/>}/>
         <Route path="post/edit/:id" element ={<Editpost 
@@ -115,8 +115,8 @@ function App() {
           setEditbody={setEditbody}
           setEdittitle={setEdittitle}
         />} />
-        <Route path="/postpage" element = {<PostPage />} />
-        <Route path="/about" element = {<About />} />
+        <Route path="postpage" element = {<PostPage />} />
+        <Route path="about" element = {<About />} />
         <Route path="*" element = {<Missing />} />
       </Routes>
       <Footer />  
