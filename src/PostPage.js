@@ -2,6 +2,7 @@ import React from 'react'
 import { useParams } from 'react-router-dom'
 import { Card } from 'react-bootstrap'
 import {Button} from 'react-bootstrap'
+import { Nav } from 'react-bootstrap'
 
 const PostPage = ({posts, handleDelete}) => {
   const {id} = useParams()
@@ -35,9 +36,10 @@ const PostPage = ({posts, handleDelete}) => {
           {!post &&
             <>
               <h2>{posts.title}</h2>
-              <h2 className='Nopost'>There is a No Post..</h2>
+              <h2 className='Nopost'>Welcome ❤️</h2>
               <h5 className='text-center'> 
-                Create your First post by clicking New post on your Top-Right..!
+                Create your First post..!
+                <Nav.Link href="/post">New Posts</Nav.Link>
               </h5>
             </>
           }

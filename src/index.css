@@ -6,7 +6,7 @@
   padding: 0;
   box-sizing: border-box;
 }
-.App {
+.App{
   background-image: linear-gradient(to right bottom, #b9f8f4, #c7f9fd, #d7f9ff, #e7faff, #f5fbff, #f5f8ff, #f9f4ff, #fff0f9, #ffe4e8, #ffdacd, #f7d6b1, #d8d69e);
   font-family: 'Playfair', serif;
   -webkit-font-smoothing: antialiased;
@@ -17,20 +17,28 @@ header{
   padding: 10px 0px 0px 0px;
   /*background-image: linear-gradient(180deg, rgba(32, 236, 255, 0.968),white); */
 }
+.home{
+  background-image: linear-gradient(to right bottom, #b9f8f4, #c7f9fd, #d7f9ff, #e7faff, #f5fbff, #f5f8ff, #f9f4ff, #fff0f9, #ffe4e8, #ffdacd, #f7d6b1, #d8d69e);
+  font-family: 'Playfair', serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  min-height: 100vh;
+}
 .search{
   display: none;
 }
 .navbr{
-  margin-left: 3vw;
+  margin-left: none;
 }
 .sea{
   margin-left: -10vw; 
+  box-shadow: 2px 4px 4px 2px rgba(0, 0, 0, 0.3);
 }
 .fullnav{
-  margin-left: 5%;
+  margin-left: 1%;
 }
 .post{
-  display: grid;
+  display: flex;
   justify-content: center;
   align-items: center;
 }
@@ -84,7 +92,7 @@ header{
   align-items: center;
 }
 .postpage{
-  height: 100vh;
+  min-height: 100vh;
   margin-top: 10%;
 }
 .buttons{
@@ -94,7 +102,7 @@ header{
   margin: 10px;
 }
 .newpost{
-  height: 100vh;
+  min-height: 100vh;
 }
 
 @media screen and (min-width: 991px){
@@ -103,9 +111,10 @@ header{
   }
   .sea{
     margin-left: 20vw; 
+    margin-right: -50px;
   }
   .fullnav{
-    margin-left: 23%;
+    margin-left: 22%;
   }
 }
 

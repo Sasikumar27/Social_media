@@ -2,9 +2,10 @@ import React from 'react'
 
 const Missing = () => {
   return (
-    <main>
-        <h1 className='text-center p-3'>OOPs..</h1>
-        <h3 className='text-center p-3'>Someting Wrong!..Please reload the page</h3>
+    <main className='text-center p-3'>
+        <h1 >OOPs..</h1>
+        <h3 >Someting Wrong!..Please Back to home </h3>
+        
     </main>
   )
 }

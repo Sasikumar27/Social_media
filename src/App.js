@@ -19,12 +19,12 @@ function App() {
   const [edittitle, setEdittitle] = useState('')
   const [editbody, setEditbody] = useState('')
   const navigate = useNavigate()
-  const [posts, setPosts] = useState([])
-  //localStorage.setItem('thoughts', JSON.stringify(posts))
-  
-  useEffect( ()=> { 
-    setPosts(JSON.parse(localStorage.getItem('thoughts')))
-  },[]) 
+  const [posts, setPosts] = useState(JSON.parse(localStorage.getItem('thoughts')) )
+
+  if(posts === null)
+  {
+    localStorage.setItem('thoughts', JSON.stringify([]))
+  }
 
   useEffect( ()=> {
     if(posts.length){
@@ -55,6 +55,11 @@ function App() {
     }
   }
 
+  /* const handlechange = (id) => {
+    const list = item.map((items) =>
+    items.id === id ? {...items, checked:!items.checked} : items)
+    setItem(list)
+    localStorage.setItem("todolist", JSON.stringify(list)) */
   const handleEdit =(id) =>{
     const datetime = format(new Date(), 'MMMM dd, yyyy pp')
     const updatepost = {
@@ -75,8 +80,8 @@ function App() {
     try{
     const postlist = posts.filter(post => post.id !== id)
     setPosts(postlist)
-    localStorage.setItem('thoughts', JSON.stringify(postlist))
     navigate('/')
+    localStorage.setItem('thoughts', JSON.stringify(postlist))
     }catch(err){
       console.log(err.message)
     }
